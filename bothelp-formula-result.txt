@@ -1,0 +1,60 @@
+# Шаг «Формула» B — после записи score_* числовых полей
+# Или после шага A, если баллы уже в локальных/client полях
+
+maxv = client.score_pear
+winner = "pear"
+if client.score_apple > maxv:
+  maxv = client.score_apple
+  winner = "apple"
+if client.score_hourglass > maxv:
+  maxv = client.score_hourglass
+  winner = "hourglass"
+if client.score_rectangle > maxv:
+  maxv = client.score_rectangle
+  winner = "rectangle"
+if client.score_inverted_triangle > maxv:
+  maxv = client.score_inverted_triangle
+  winner = "inverted_triangle"
+
+# Tie-breaker: Q7, иначе Q1
+q7 = str(client.quiz_q7)
+q1 = str(client.quiz_q1)
+leaders_count = 0
+if client.score_pear == maxv: leaders_count = leaders_count + 1
+if client.score_apple == maxv: leaders_count = leaders_count + 1
+if client.score_hourglass == maxv: leaders_count = leaders_count + 1
+if client.score_rectangle == maxv: leaders_count = leaders_count + 1
+if client.score_inverted_triangle == maxv: leaders_count = leaders_count + 1
+
+if leaders_count > 1:
+  if q7 == "pear" and client.score_pear == maxv: winner = "pear"
+  if q7 == "apple" and client.score_apple == maxv: winner = "apple"
+  if q7 == "hourglass" and client.score_hourglass == maxv: winner = "hourglass"
+  if q7 == "rectangle" and client.score_rectangle == maxv: winner = "rectangle"
+  if q7 == "inverted_triangle" and client.score_inverted_triangle == maxv: winner = "inverted_triangle"
+  if q7 == "" or q7 == "null" or q7 == "None":
+    if q1 == "pear" and client.score_pear == maxv: winner = "pear"
+    if q1 == "apple" and client.score_apple == maxv: winner = "apple"
+    if q1 == "hourglass" and client.score_hourglass == maxv: winner = "hourglass"
+    if q1 == "rectangle" and client.score_rectangle == maxv: winner = "rectangle"
+    if q1 == "inverted_triangle" and client.score_inverted_triangle == maxv: winner = "inverted_triangle"
+
+client.quiz_result_type = winner
+client.quiz_result_title = "Песочные часы"
+client.quiz_result_summary = "Гармоничные пропорции: ширина плеч и бедер примерно равна, а талия ярко выражена."
+if winner == "pear":
+  client.quiz_result_title = "Груша (Треугольник)"
+  client.quiz_result_summary = "Женственный силуэт с акцентом на бедрах, изящными плечами и выраженной талией."
+if winner == "apple":
+  client.quiz_result_title = "Яблоко (Круг)"
+  client.quiz_result_summary = "Объем сосредоточен в верхней и средней части корпуса в сочетании со стройными длинными ногами."
+if winner == "rectangle":
+  client.quiz_result_title = "Прямоугольник"
+  client.quiz_result_summary = "Сбалансированный атлетичный силуэт: плечи, талия и бедра находятся практически на одной линии."
+if winner == "inverted_triangle":
+  client.quiz_result_title = "Перевернутый треугольник"
+  client.quiz_result_summary = "Выразительный плечевой пояс и грудь при узких бедрах и стройных ногах."
+
+total = client.score_pear + client.score_apple + client.score_hourglass + client.score_rectangle + client.score_inverted_triangle
+if total < 1: total = 1
+client.quiz_result_scores = "Песочные часы: " + str(client.score_hourglass) + " | Груша: " + str(client.score_pear) + " | Яблоко: " + str(client.score_apple) + " | Прямоугольник: " + str(client.score_rectangle) + " | Перевёрнутый треугольник: " + str(client.score_inverted_triangle)

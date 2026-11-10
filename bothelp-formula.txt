@@ -1,0 +1,60 @@
+# BotHelp шаг «Формула» после вопроса 7
+# Лимит: без циклов/списков/словарей, ~50 строк
+
+q1 = str(client.quiz_q1)
+q2 = str(client.quiz_q2)
+q3 = str(client.quiz_q3)
+q4 = str(client.quiz_q4)
+q5 = str(client.quiz_q5)
+q6 = str(client.quiz_q6)
+q7 = str(client.quiz_q7)
+
+pear = 0
+apple = 0
+hourglass = 0
+rectangle = 0
+inverted_triangle = 0
+
+if q1 == "pear": pear = pear + 1
+if q2 == "pear": pear = pear + 1
+if q3 == "pear": pear = pear + 1
+if q4 == "pear": pear = pear + 1
+if q5 == "pear": pear = pear + 1
+if q6 == "pear": pear = pear + 1
+if q7 == "pear": pear = pear + 1
+
+if q1 == "apple": apple = apple + 1
+if q2 == "apple": apple = apple + 1
+if q3 == "apple": apple = apple + 1
+if q4 == "apple": apple = apple + 1
+if q5 == "apple": apple = apple + 1
+if q6 == "apple": apple = apple + 1
+if q7 == "apple": apple = apple + 1
+
+if q1 == "hourglass": hourglass = hourglass + 1
+if q2 == "hourglass": hourglass = hourglass + 1
+if q3 == "hourglass": hourglass = hourglass + 1
+if q4 == "hourglass": hourglass = hourglass + 1
+if q5 == "hourglass": hourglass = hourglass + 1
+if q6 == "hourglass": hourglass = hourglass + 1
+if q7 == "hourglass": hourglass = hourglass + 1
+
+if q1 == "rectangle": rectangle = rectangle + 1
+if q2 == "rectangle": rectangle = rectangle + 1
+if q3 == "rectangle": rectangle = rectangle + 1
+if q4 == "rectangle": rectangle = rectangle + 1
+if q5 == "rectangle": rectangle = rectangle + 1
+if q6 == "rectangle": rectangle = rectangle + 1
+if q7 == "rectangle": rectangle = rectangle + 1
+
+if q1 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+if q2 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+if q3 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+if q4 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+if q5 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+if q6 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+if q7 == "inverted_triangle": inverted_triangle = inverted_triangle + 1
+
+# ВАЖНО: из-за лимита 50 строк разбейте на 2 шага «Формула»:
+# Шаг A — подсчёт баллов выше и запись client.score_*
+# Шаг B — tie-breaker и тексты результата (см. bothelp-formula-result.txt)
